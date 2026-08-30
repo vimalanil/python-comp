@@ -16,3 +16,26 @@ r = 3
 rsum = prefix[r] - prefix[l-1]
 
 print(rsum)
+
+# subarray sum using prefix sum
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+
+        prefix = 0
+        count = 0
+
+        freq = {0: 1}
+
+        for num in nums:
+
+            prefix += num
+
+            needed = prefix - k
+
+            if needed in freq:
+                count += freq[needed]
+
+            freq[prefix] = freq.get(prefix, 0) + 1
+
+        return count
