@@ -9,3 +9,4 @@ print(stack)
 print(stack.pop())
 
 print(stack[-1])
+
